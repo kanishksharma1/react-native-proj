@@ -3,9 +3,6 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 const Icon = ({socialMedia, source}) => {
   return (
-    
-
-    
     <View style={styles.container}>
       <Image
         source={source} // Replace with your icon source

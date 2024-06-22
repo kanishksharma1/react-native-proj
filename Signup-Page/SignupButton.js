@@ -1,12 +1,11 @@
 import React from "react";
 import { StyleSheet, SafeAreaView, TextInput, Text, View, TouchableOpacity } from 'react-native';
-
-
-export default function SignupButton () {
+export default function SignupButton ({navigation}) {
+  // const navigation = useNavigation();
     return (
         <View style={styles.container}>
         {/* <button style={styles.button}> <Text>Sign Up Now</Text> </button> */}
-        <TouchableOpacity style={styles.button} onPress={() => { /* handle press */ }}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.buttonText}>Sign Up Now</Text>
         </TouchableOpacity>
       </View>

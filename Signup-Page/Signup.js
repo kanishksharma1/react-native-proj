@@ -3,9 +3,11 @@ import { StyleSheet, Text, View, KeyboardAvoidingView, Platform, ScrollView, Saf
 import InputBox from "./InputBox";
 import SignupButton from "./SignupButton";
 import Icon from "./Icon";
+// import { useNavigation } from "@react-navigation/native";
 
 
-export default function Signup () {
+export default function Signup ({ navigation }) {
+  // const navigation = useNavigation();
     return (
       <SafeAreaView style={styles.safeArea}>
       <ScrollView>
@@ -13,22 +15,21 @@ export default function Signup () {
           <Text style={styles.h1}>SIGN UP</Text>
           <Text style={styles.p}>Sign Up Now and Get The Best Deals </Text>
           <View style={styles.line}></View>
-          <InputBox label="Username" placeholder="Enter Your Username " />
+          <InputBox label="Username" placeholder="Enter Your Username" />
           <InputBox label="Email" placeholder="Enter Email Address " />
           <InputBox label="Password" placeholder="Enter Password" />  
-          <SignupButton />
+          <SignupButton navigation={navigation} />
           <Text style={styles.text}>or Continue With</Text>
-          <View  style={styles.socialMediaMain}>
+          <View style={styles.socialMediaMain}>
           <View style={styles.facebook}>
-          <Icon  socialMedia="FACEBOOK" source={require('./facebook.png')} />
+          <Icon socialMedia="FACEBOOK" source={require('../assets/facebook.png')} />
           </View>
         <View style={styles.google}>
-        <Icon socialMedia="GOOGLE" source={require('./google.png')} />
+        <Icon socialMedia="GOOGLE" source={require('../assets/google.png')} />
         </View>
           </View>
           <Text style={StyleSheet.create({textAlign:'center', fontWeight:'bold'})}>Already have an Account? Sign In</Text>
         </View>
-        
         </ScrollView>
         </SafeAreaView>
       );
@@ -45,7 +46,7 @@ safeArea: {
     //   alignItems: 'flex-start',
       justifyContent: 'center',
       marginLeft:10,
-      elevation: 5,
+      // elevation: 5,
       
     }, 
     h1:{
@@ -85,7 +86,6 @@ safeArea: {
     socialMediaMain:{
       flex: 1,
       flexDirection: 'row',
-  
       padding:10
     }
   });
