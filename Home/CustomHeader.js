@@ -16,19 +16,18 @@ const CustomHeader = ({ name }) => {
           <Image
             source={require('../assets/location.png')} // Replace with your icon source
             style={
-                StyleSheet.create({width: 30,
-      height: 30,})
+                StyleSheet.create({width: 25,
+      height: 25, position:'relative', right:20})
             }
           />
            <Image
             source={require('../assets/bell.png')} // Replace with your icon source
             style={
-                StyleSheet.create({width: 30,
-      height: 30, marginLeft:20})
+                StyleSheet.create({width: 25,
+      height: 25, position:'relative',})
             }
           />
           </View>
-
         </View>
       </View>
     );
@@ -43,7 +42,7 @@ const CustomHeader = ({ name }) => {
       shadowOffset: { width: 0, height: 4 }, // Adjust shadow offset (optional)
       shadowOpacity: 0.6, // Set shadow opacity (optional)
       shadowRadius: 4,
-      marginTop:30
+      marginTop:30,
     },
     text: {
       fontSize: 22,

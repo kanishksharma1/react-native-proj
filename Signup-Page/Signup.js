@@ -17,7 +17,7 @@ export default function Signup ({ navigation }) {
           <View style={styles.line}></View>
           <InputBox label="Username" placeholder="Enter Your Username" />
           <InputBox label="Email" placeholder="Enter Email Address " />
-          <InputBox label="Password" placeholder="Enter Password" />  
+          <InputBox label="Password" placeholder="Enter Password" secureTextEntry={true} />  
           <SignupButton navigation={navigation} />
           <Text style={styles.text}>or Continue With</Text>
           <View style={styles.socialMediaMain}>
@@ -28,7 +28,7 @@ export default function Signup ({ navigation }) {
         <Icon socialMedia="GOOGLE" source={require('../assets/google.png')} />
         </View>
           </View>
-          <Text style={StyleSheet.create({textAlign:'center', fontWeight:'bold'})}>Already have an Account? Sign In</Text>
+          <Text style={StyleSheet.create({textAlign:'center', fontWeight:'bold'})}>Already have an Account? <Text style={StyleSheet.create({color:'rgb(10, 102, 194)', fontWeight:'bold', textDecorationLine:'underline'})}>Sign In</Text> </Text>
         </View>
         </ScrollView>
         </SafeAreaView>
@@ -87,6 +87,6 @@ safeArea: {
       flex: 1,
       flexDirection: 'row',
       padding:10
-    }
+    },
   });
   

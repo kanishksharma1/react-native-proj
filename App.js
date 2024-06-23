@@ -5,6 +5,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Signup from "./Signup-Page/Signup";
 import Home from "./Home/Home";
 import SecondHomePage from "./SecondHomePage/SecondHomePage";
+import BottomTabs from "./BottomTab";
+import DummyScreen from './DummyScreen';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -29,12 +32,17 @@ export default function App() {
         options={{ headerShown: false }} />
         <Stack.Screen
           name="Home"
-          component={Home}
+          component={BottomTabs}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="SecondHomePage"
           component={SecondHomePage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DummyScreen"
+          component={DummyScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

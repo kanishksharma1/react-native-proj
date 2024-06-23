@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, SafeAreaView, FlatList } from 'react-native';
+import React, { useState }  from 'react';
+import { View, Text, Image, StyleSheet, SafeAreaView, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import CustomHeader  from "./CustomHeader";
 import HomeSearchInput from "./HomeSearchInput";
 import SeeAllComponent from "./SeeAllComponent";
@@ -91,8 +91,14 @@ const properties = [
 
 
 const Home = ({navigation}) => {
+  const [selectedImage, setSelectedImage] = useState(properties[0].image);
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView>
+    <SafeAreaView style={StyleSheet.create({backgroundColor:'#f8f8f8'})}>
         <CustomHeader name="John Smith" />
         <HomeSearchInput />
         <SeeAllComponent SampleText="Latest Projects" SeeAll="SEE ALL" navigation={navigation} />
@@ -101,24 +107,40 @@ const Home = ({navigation}) => {
         horizontal
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <PropertyCard
-            image={item.image}
-            title={item.title}
-            location={item.location}
-            details={item.details}
-            price={item.price}
-          />
+        <TouchableOpacity onPress={() => handleImageClick(item.image)}>
+            <PropertyCard
+              image={item.image}
+              title={item.title}
+              location={item.location}
+              details={item.details}
+              price={item.price}
+            />
+        </TouchableOpacity>
         )}
-        contentContainerStyle={styles.listContainer}
       />
+       {selectedImage && (
+        <View style={styles.selectedImageContainer}>
+        <Image source={{ uri: selectedImage }} style={styles.selectedImage} />
+      </View>
+      )}
     </SafeAreaView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Fill the screen
+    backgroundColor: '#f8f8f8',
   },
-
+selectedImageContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  selectedImage: {
+    width: '93%',
+    height: 250,
+    borderRadius: 10,
+  },
 });
 export default Home;
