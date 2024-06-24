@@ -7,6 +7,7 @@ import Home from "./Home/Home";
 import SecondHomePage from "./SecondHomePage/SecondHomePage";
 import BottomTabs from "./BottomTab";
 import DummyScreen from './DummyScreen';
+import FavoritesScreen from './FavoritesScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -39,6 +40,10 @@ export default function App() {
           name="SecondHomePage"
           component={SecondHomePage}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FavoritesScreen"
+          component={FavoritesScreen}
         />
         <Stack.Screen
           name="DummyScreen"

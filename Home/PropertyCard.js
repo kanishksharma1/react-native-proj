@@ -1,20 +1,21 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const PropertyCard = ({ image, title, location, details, price }) => {
+const PropertyCard = ({ image, title, location, details, price, onToggleFavorite, isFavorite }) => {
   return (
     <View style={styles.card}>
       <Image source={{ uri: image }} style={styles.image} />
       <View style={styles.infoContainer}>
         <Text style={styles.title}>{title}</Text>
-        
         <Text style={styles.location}>{location}</Text>
         <Text style={styles.details}>{details}</Text>
-        <Text style={styles.price}>Starting Price: </Text>
-        <Text style={StyleSheet.create({color:'rgb(10, 102, 194)', fontWeight:'bold'})}>{price}</Text>
+        <Text style={styles.price}>Starting Price:</Text>
+        <Text style={styles.priceValue}>{price}</Text>
       </View>
-      <Ionicons name="heart-outline" size={24} color="#000" style={styles.heartIcon} />
+      <TouchableOpacity onPress={onToggleFavorite} style={styles.heartIcon}>
+        <Ionicons name={isFavorite ? "heart" : "heart-outline"} size={24} color={isFavorite ? "red" : "#000"} />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -53,6 +54,10 @@ const styles = StyleSheet.create({
     color: '#000',
     fontWeight: 'bold',
     marginBottom: 5, // Added margin bottom to separate from title
+  },
+  priceValue: {
+    color: 'rgb(10, 102, 194)',
+    fontWeight: 'bold',
   },
   heartIcon: {
     position: 'absolute',
